@@ -1,0 +1,86 @@
+/* ===== MARCO DE MADERA ===== */
+
+#boardWrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:3px 0px; /* arriba/abajo | izquierda/derecha */
+
+    width:fit-content;
+
+    background:linear-gradient(145deg,#6b4423,#4a2e15);
+
+    border-top:1px solid #3a240f;
+    border-bottom:1px solid #3a240f;
+    border-left:0;
+    border-right:0;
+
+    box-shadow:
+        inset 0 0 8px #000,
+        0 0 12px #000;
+}
+
+/* ===== LETRAS ===== */
+
+.files{
+    display:grid;
+    grid-template-columns:30px repeat(8,1fr) 30px;
+
+    font-weight:bold;
+    font-size:18px;
+    color:#ddd;
+
+    width:100%;
+    max-width:480px;
+}
+
+.files span{
+    text-align:center;
+}
+
+.files.top{
+    margin-bottom:4px;
+}
+
+.files.bottom{
+    margin-top:4px;
+}
+
+/* ===== CENTRO ===== */
+
+.boardCenter{
+    display:flex;
+    align-items:center;
+}
+
+/* ===== NÚMEROS ===== */
+
+.ranks{
+    display:grid;
+
+    grid-template-rows:repeat(8,53px);
+
+    width:30px;
+
+    font-weight:bold;
+    font-size:18px;
+    color:#ddd;
+}
+
+.ranks span{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===== ESPACIO DEL TABLERO ===== */
+
+#boardSpace{
+    width:100%;
+    aspect-ratio:1/1;
+
+    background:#00000020;
+
+    border:3px dashed #ffffff30;
+}

@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 140px;
+    min-height: 100vh; /* 👈 cambia height por min-height */
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.titulo {
+    font-size: 3rem;
+    margin-bottom: -10px;
+    letter-spacing: 3px;
+}
+
+.subtitulo {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.imagen-principal {
+    width: 220px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* espacio entre botones */
+    flex-wrap: wrap; /* si la pantalla es pequeña bajan */
+}
+
+.botones button {
+    flex: 1; /* todos ocupan el mismo espacio */
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #203a43;
+    font-weight: bold;
+    transition: 0.3s;
+    min-width: 120px; /* evita que se hagan muy pequeños */
+}
+
+.botones button:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
+
+/* Canvas de partículas */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* no bloquea clicks */
+}
+
+/* Aseguramos que el contenido esté encima */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================== */
+/*  MOVIL VERTICAL PARA MOVILES (portrait)           */
+/* ===================================== */
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+    body {
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .titulo {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitulo {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+
+    .botones {
+        flex-direction: column; /* botones vertical */
+        gap: 18px;
+        align-items: center;
+    }
+
+    .botones button {
+        width: 200px;
+        font-size: 1rem;
+        padding: 16px;
+        border-radius: 14px;
+    }
+}
+
+
+/* ===================================== */
+/*  MOVIL HORIZONTAL (landscape)        */
+/*  Se comporta como PC                 */
+/* ===================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+    body {
+        padding-top: 120px;
+    }
+
+    .titulo {
+        font-size: 2.8rem;
+    }
+
+    .botones {
+        flex-direction: row; /* botones en fila como PC */
+        gap: 15px;
+    }
+
+    .botones button {
+        min-width: 120px;
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,115 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.menu-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== TITULOS ===== */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    margin-top: 5px;
+    font-weight: normal;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+/* ===== BUSCADOR ===== */
+#buscador {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+#buscador:focus {
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* ===== BOTONES ===== */
+.botones-repertorio {
+    display: flex;
+    gap: 10px;
+}
+
+.botones-repertorio button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: white;
+    color: #203a43;   /* 🔥 AQUÍ cambias el color */
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+    font-weight: 700; /* 🔥 negrita más marcada */
+}
+
+.botones-repertorio button:hover {
+    background: #e5e5e5; /* 🔥 leve gris al pasar mouse */
+}
+
+/* ===== LISTA ===== */
+.lista {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== ITEMS ===== */
+.item-apertura {
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.item-apertura:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.item-apertura.activa {
+    background: rgba(255,255,255,0.25);
+    font-weight: 600;
+    color: white;
+    text-shadow: 
+        -1px -1px 0 rgb(32, 32, 32),
+         1px -1px 0 rgb(32, 32, 32),
+        -1px  1px 0 rgb(32, 32, 32),
+         1px  1px 0 rgb(32, 32, 32);
+}
+
+/* ===== SCROLL MINIMAL ===== */
+.lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lista::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* Reducir espacio arriba y abajo de los botones */
+.botones-repertorio {
+    margin: -10px 0;
+}
