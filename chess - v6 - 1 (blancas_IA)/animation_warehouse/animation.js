@@ -284,6 +284,13 @@ window.addEventListener("message", (e) => {
         notificarDificultad(dificultad);
     }
 
+    // 🔥🔥🔥 NUEVO BLOQUE (CONFIRMACIÓN A UNION) 🔥🔥🔥
+    if (window.parent) {
+        window.parent.postMessage({
+            type: "animation-ready"
+        }, "*");
+    }
+
 });
 
 // 🔥 DETECTAR SI ESTÁ DENTRO DE UN IFRAME
