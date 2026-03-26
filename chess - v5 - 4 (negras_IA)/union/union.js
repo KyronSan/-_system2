@@ -298,27 +298,74 @@ if (blueBox) {
 
 }
 
-// ✅ CONTROLAR ANIMACIÓN (SIMULAR USUARIO)
-setTimeout(() => {
+/* ===============================
+    AUTO → ANIMATION (MEJORADO)
+   =============================== */
+
+let animationConfirmada = false;
+
+// 🔹 ESCUCHAR CONFIRMACIÓN DESDE animation.js
+window.addEventListener("message", (e) => {
+    if (e.data?.type === "animation-ready") {
+        animationConfirmada = true;
+        console.log("✅ Animación confirmó recepción");
+    }
+});
+
+// 🔹 FUNCIÓN PARA ENVIAR
+function enviarAnimacion(apertura, dificultad) {
 
     if (!animationFrame || !animationFrame.contentWindow) return;
-    if (!aperturaClaveGlobal || !difficultyGlobal) return;
-
-    console.log("AUTO → animación:", aperturaClaveGlobal, difficultyGlobal);
 
     const mapAnim = {
         facil: "facil",
-        medio: "intermedio", // 🔥 CLAVE
+        medio: "intermedio",
         dificil: "dificil"
     };
 
+    console.log("AUTO → animación:", apertura, dificultad);
+
     animationFrame.contentWindow.postMessage({
         type: "autoSetup",
-        apertura: aperturaClaveGlobal,
-        dificultad: mapAnim[difficultyGlobal]
+        apertura: apertura,
+        dificultad: mapAnim[dificultad]
     }, "*");
+}
 
-}, 100); // un mili-segundo un poco más tarde que chess
+// 🔹 ENVÍO INICIAL
+setTimeout(() => {
+
+    if (!aperturaClaveGlobal || !difficultyGlobal) return;
+
+    enviarAnimacion(aperturaClaveGlobal, difficultyGlobal);
+
+}, 100);
+
+// 🔥 REINTENTO SI FALLA
+setTimeout(() => {
+
+    if (animationConfirmada) return;
+
+    console.warn("⚠️ Animación NO respondió, reintentando desde URL...");
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let dificultad = urlParams.get("dificultad");
+    let apertura = urlParams.get("apertura");
+
+    if (!dificultad || !apertura) return;
+
+    // 🔹 NORMALIZAR
+    apertura = apertura
+        .toLowerCase()
+        .replace("defensa ", "")
+        .replace(/\s/g, "");
+
+    console.log("🔁 REINTENTO → animación:", apertura, dificultad);
+
+    enviarAnimacion(apertura, dificultad);
+
+}, 100);
 
 // --  BOTÓN DE REINICIO --
 const resetBtn = document.getElementById("resetBtn");
