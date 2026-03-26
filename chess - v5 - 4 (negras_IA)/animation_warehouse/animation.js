@@ -261,19 +261,35 @@ window.addEventListener("message", (e) => {
 
     console.log("ANIMATION AUTO:", apertura, dificultad);
 
-    // 1. Seleccionar apertura
+    // ✅ seleccionar apertura en el select
     if (openingSelect) {
         openingSelect.value = apertura;
-        openingSelect.dispatchEvent(new Event("change"));
+
+        // habilitar botones
+        difficultyButtons.forEach(btn => {
+            btn.disabled = false;
+        });
     }
 
-    // 2. Esperar un poco y activar dificultad
-    setTimeout(() => {
+    // ✅ cargar personaje automáticamente
+    if (dificultad) {
+        cargarPersonaje(dificultad);
+
+        // marcar botón activo
+        difficultyButtons.forEach(b => b.classList.remove("active"));
         const btn = document.querySelector(`#difficultyBox button[data-level="${dificultad}"]`);
-        if (btn) {
-            btn.click();
-        }
-    }, 300);
+        if (btn) btn.classList.add("active");
+
+        // 🔥 IMPORTANTE: notificar a union
+        notificarDificultad(dificultad);
+    }
+
+    // 🔥🔥🔥 CONFIRMACIÓN A UNION 🔥🔥🔥
+    if (window.parent) {
+        window.parent.postMessage({
+            type: "animation-ready"
+        }, "*");
+    }
 
 });
 
