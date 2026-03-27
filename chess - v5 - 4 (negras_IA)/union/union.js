@@ -2,22 +2,6 @@ const chessFrame = document.getElementById("chessFrame");
 const animationFrame = document.getElementById("animationFrame");
 const blueBox = document.getElementById("blueBox");
 
-// ===============================
-// AUTO-REFRESH SOLO UNA VEZ
-// ===============================
-const vieneDeRepertorio =
-    document.referrer.includes("repertorio_blancas") ||
-    document.referrer.includes("repertorio_negras");
-
-const yaRecargo = sessionStorage.getItem("union_recargado");
-
-if (vieneDeRepertorio && !yaRecargo) {
-    sessionStorage.setItem("union_recargado", "true");
-
-    console.log("Auto-recargando por entrada desde repertorio...");
-    location.reload();
-}
-
 /* ===============================
    LEER PARAMETROS DE LA URL (REPERTORIO)
    =============================== */
