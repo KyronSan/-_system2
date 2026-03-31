@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repertorio vs Blancas</title>
+
+<link rel="stylesheet" href="repertorio_blancas.css">
+<link rel="stylesheet" href="entrenar.css">
+<link rel="stylesheet" href="reper_movil.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="menu-container">
+
+    <h1>Repertorio</h1>
+    <h2>Elija la apertura oponente (Negras)</h2>
+
+    <input type="text" id="buscador" placeholder="Buscar apertura...">
+
+    <div class="botones-repertorio">
+        <button id="btnRandom">🎲 Aleatorio</button>
+        <button id="btnPreview" class="btn-preview">?</button> <!-- 🔥 BOTON INTERROGACION -->
+        <button id="btnSiguiente">Siguiente</button>
+    </div>
+
+    <div id="listaAperturas" class="lista"></div>
+
+    <button onclick="window.history.back()" class="btn-volver-top">🡸</button>
+
+</div>
+
+<script src="repertorio_blancas.js"></script>
+<script src="particulas.js"></script>
+
+</body>
+</html>

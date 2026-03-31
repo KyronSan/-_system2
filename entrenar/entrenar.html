@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoEnAJ - Entrenamiento</title>
+
+<link rel="stylesheet" href="entrenar.css">
+<link rel="stylesheet" href="entre_movil.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="menu-container">
+
+    <h1>SoEnAJ</h1>
+    <h2>Modo Entrenamiento</h2>
+
+    <div class="fase">
+
+        <div class="grupo">
+            <label>Elige tu color</label>
+            <select id="colorSelect">
+                <option value="">Seleccionar</option>
+                <option value="blancas">Blancas</option>
+                <option value="negras">Negras</option>
+            </select>
+        </div>
+
+        <div class="grupo">
+            <label>Dificultad</label>
+            <select id="dificultadSelect">
+                <option value="">Seleccionar</option>
+                <option value="facil">Fácil</option>
+                <option value="medio">Medio</option>
+                <option value="dificil">Difícil</option>
+            </select>
+        </div>
+
+        <button id="btnEntrar">Entrar</button>
+        <button id="btnVolverInicio" class="btn-volver-top">🡸</button>
+
+    </div>
+
+</div>
+
+<script src="entrenar.js"></script>
+<script src="particulas.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+#animationContainer {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/* ===== CUADRO DE ANIMACIÓN ===== */
+#animationBox {
+    width: 260px; /* ANCHURA */
+    height: 130px; /* ALTURA */
+    background: #000;
+    border: 4px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#characterSprite {
+    width: 120px;   /* tamaño visible */
+    height: 120px;
+
+    background-image: url("images/images_emotions.png");
+    background-repeat: no-repeat;
+
+    background-size: 1200px 480px;
+
+    image-rendering: pixelated;
+}
+
+/* ===== CUADRO DE DIÁLOGO ===== */
+#dialogBox {
+    width: 260px;
+    background: black;
+    border: 4px solid white;
+    padding: 10px;
+    min-height: 80px;
+    box-sizing: border-box;
+}
+
+#dialogText {
+    white-space: pre-wrap;
+}
+
+/* ===== CONTROLES ===== */
+#controls {
+    display: flex;
+    gap: 6px;
+
+    display: none; /* Oculta completamente el div */
+}
+
+#controls button {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    font-size: 16px;
+    width: 40px;
+    cursor: pointer;
+}
+
+#controls button:hover {
+    background: white;
+    color: black;
+}
+
+/* ===== DIFICULTAD ===== */
+#difficultyBox {
+    display: flex;
+    gap: 6px;
+}
+
+#difficultyBox button {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    padding: 6px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#difficultyBox button:hover {
+    background: white;
+    color: black;
+}
+
+/* ===== DIFICULTAD ACTIVA ===== */
+#difficultyBox button.active {
+    background: #ffffff;
+    color: #000000;
+    border-color: #7c7c7c;
+}
+
+/* ===============================
+   📱 MÓVIL — ESCALA x2 (MISMA PROPORCIÓN PC)
+   =============================== */
+@media (max-width: 500px) {
+
+    #animationContainer {
+        width: 520px;
+        font-size: 28px;
+        gap: 16px;
+    }
+
+    #animationBox {
+        width: 520px;
+        height: 260px;
+        border-width: 8px;
+    }
+
+    /* 🔥 AQUÍ ESTÁ LA CLAVE */
+    #characterSprite {
+        width: 240px;
+        height: 240px;
+        background-size: 2400px 960px;
+    }
+
+    #dialogBox {
+        width: 520px;
+        min-height: 160px;
+        padding: 20px;
+        border-width: 8px;
+        font-size: 28px;
+    }
+
+    #difficultyBox {
+        gap: 12px;
+    }
+
+    #difficultyBox button {
+        padding: 12px;
+        font-size: 26px;
+        border-width: 4px;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Animación de Personaje</title>
+    <link rel="stylesheet" href="animation.css">
+</head>
+<body>
+
+<div id="animationContainer">
+
+    <!-- CUADRO DE ANIMACIÓN -->
+    <div id="animationBox">
+        <div id="characterSprite"></div>
+    </div>
+
+    <!-- CUADRO DE TEXTO -->
+    <div id="dialogBox">
+        <div id="dialogText"></div>
+    </div>
+
+    <!-- CONTROLES DE TEXTO -->
+    <div id="controls">
+        <button id="prevBtn">◀</button>
+        <button id="nextBtn">▶</button>
+    </div>
+
+    <!-- SELECCIÓN DE APERTURA -->
+    <div id="openingBox">
+
+        <div style="color:white;font-family:monospace;margin-bottom:5px;">
+            Selecciona apertura del oponente
+        </div>
+
+        <select id="openingSelect">
+            <option value="">-- Elegir apertura --</option>
+
+            <option value="francesa">Francesa</option>
+            <option value="carokann">Caro-Kann</option>
+            <option value="siciliana">Siciliana</option>
+            <option value="pirc">Pirc</option>
+            <option value="india">India de Dama</option>
+            <option value="eslava">Eslava</option>
+            <option value="moderna">Moderna</option>
+            <option value="alekhine">Alekhine</option>
+            <option value="owen">Owen</option>
+            <option value="semieslava">Semi-Eslava</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- SELECCIÓN DE DIFICULTAD -->
+    <div id="difficultyBox">
+        <button data-level="facil" disabled>FÁCIL</button>
+        <button data-level="intermedio" disabled>INTERMEDIA</button>
+        <button data-level="dificil" disabled>DIFÍCIL</button>
+    </div>
+
+</div>
+
+<script src="animation.js"></script>
+</body>
+</html>
